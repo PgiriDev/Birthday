@@ -1,96 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎂 Happy Birthday Satyaki Pahari Sir</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Happy Birthday Satyaki Pahari Sir 🎂
+  </title>
+
+  <meta
+    name="description"
+    content="A digital birthday tribute for Satyaki Pahari Sir."
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 <body>
 
-    <div class="container">
-        <!-- Header / Sir Info -->
-        <header class="header-card">
-            <div class="sir-img-container">
-                <img src="sir-photo.jpg" alt="Satyaki Pahari Sir" id="sirPhoto"> <!-- Sir er photo ghorar path rakhbe -->
-            </div>
-            <h1>Happy Birthday, <span class="highlight">Satyaki Pahari Sir!</span> 🎂</h1>
-            <p class="tagline">Our Mentor, Guide, and Inspiration — Alor Disha Family</p>
-            
-            <!-- Live Counters -->
-            <div class="stats-box">
-                <div class="stat-item">
-                    <i class="fa-solid fa-heart"></i>
-                    <div>
-                        <h3 id="totalWishes">0</h3>
-                        <span>Total Wishes</span>
-                    </div>
-                </div>
-                <div class="stat-item">
-                    <i class="fa-solid fa-users"></i>
-                    <div>
-                        <h3 id="totalVisitors">124</h3>
-                        <span>Wishes Wall</span>
-                    </div>
-                </div>
-            </div>
-        </header>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
 
-        <!-- Wish Form Section -->
-        <section class="form-section">
-            <h2>Leave a Birthday Wish</h2>
-            <form id="wishForm">
-                <div class="input-group">
-                    <label for="name"><i class="fa-solid fa-user"></i> Your Name</label>
-                    <input type="text" id="name" required placeholder="Enter your full name">
-                </div>
-                
-                <div class="input-group">
-                    <label for="relation"><i class="fa-solid fa-hands-holding-child"></i> Your Relation / Identity</label>
-                    <select id="relation" required>
-                        <option value="">Select Relation</option>
-                        <option value="Student">Student (CSE / Computer Class)</option>
-                        <option value="Colleague">Colleague / Teacher</option>
-                        <option value="Well-Wisher">Well-Wisher</option>
-                        <option value="Alor Disha Member">Alor Disha Member</option>
-                    </select>
-                </div>
+  <main>
 
-                <div class="input-group">
-                    <label for="message"><i class="fa-solid fa-message"></i> Personal Message</label>
-                    <textarea id="message" rows="4" required placeholder="Write your heartfelt birthday message here..."></textarea>
-                </div>
+    <!-- HERO -->
 
-                <button type="submit" id="submitBtn">
-                    <i class="fa-solid fa-paper-plane"></i> Send Wish to Sir
-                </button>
-            </form>
-        </section>
+    <section class="hero">
 
-        <!-- Live Wishes Wall -->
-        <section class="wall-section">
-            <h2><i class="fa-solid fa-stream"></i> Live Wishes Wall</h2>
-            <div id="wishesContainer" class="wishes-grid">
-                <!-- Dynamic cards will load here -->
-                <p class="loading-text">Loading wishes from well-wishers...</p>
-            </div>
-        </section>
-    </div>
+      <div class="badge">
+        🎂 A Special Celebration
+      </div>
 
-    <!-- Success Popup Modal -->
-    <div id="successModal" class="modal">
-        <div class="modal-content">
-            <i class="fa-solid fa-circle-check"></i>
-            <h3>Wish Sent Successfully!</h3>
-            <p>Thank you! Your wish has been recorded and sent to Satyaki Sir via email.</p>
-            <button onclick="closeModal()">Close</button>
+      <h1>
+        Happy Birthday
+        <span>Satyaki Pahari Sir</span>
+      </h1>
+
+      <p class="hero-text">
+        A small digital space created by everyone
+        who wants to make your special day memorable.
+      </p>
+
+      <button
+        class="primary-btn"
+        onclick="scrollToWishForm()"
+      >
+        💌 Leave a Birthday Wish
+      </button>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+      <div class="stat-card">
+        <strong id="wishCount">0</strong>
+        <span>Birthday Wishes</span>
+      </div>
+
+      <div class="stat-card">
+        <strong id="peopleCount">0</strong>
+        <span>People</span>
+      </div>
+
+    </section>
+
+
+    <!-- WISH FORM -->
+
+    <section
+      class="section"
+      id="wishSection"
+    >
+
+      <div class="section-heading">
+
+        <div class="section-icon">
+          💌
         </div>
-    </div>
 
-    <script src="script.js"></script>
+        <h2>
+          Leave Your Wish
+        </h2>
+
+        <p>
+          Write something special for Sir.
+        </p>
+
+      </div>
+
+
+      <form
+        id="wishForm"
+        action="YOUR_APPS_SCRIPT_URL"
+        method="POST"
+        target="submitFrame"
+      >
+
+        <div class="form-grid">
+
+          <div class="field">
+
+            <label>
+              Your Name
+            </label>
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              maxlength="80"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              You are...
+            </label>
+
+            <select
+              name="relation"
+              required
+            >
+
+              <option value="">
+                Select one
+              </option>
+
+              <option>
+                Student
+              </option>
+
+              <option>
+                Former Student
+              </option>
+
+              <option>
+                Teacher / Colleague
+              </option>
+
+              <option>
+                Friend
+              </option>
+
+              <option>
+                Well-wisher
+              </option>
+
+              <option>
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Email
+            <span>Optional</span>
+          </label>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            maxlength="150"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Your Message
+          </label>
+
+          <textarea
+            name="message"
+            placeholder="Write your birthday wish for Sir..."
+            maxlength="1000"
+            required
+          ></textarea>
+
+          <div class="counter">
+            <span id="characterCount">0</span>
+            / 1000
+          </div>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="submit-btn"
+          id="submitButton"
+        >
+          🎁 Send My Wish
+        </button>
+
+      </form>
+
+      <iframe
+        name="submitFrame"
+        id="submitFrame"
+        hidden
+      ></iframe>
+
+      <div
+        id="successMessage"
+        class="success-message"
+      >
+        🎉 Your wish has been submitted!
+        <br>
+        It will appear here after it is approved.
+      </div>
+
+    </section>
+
+
+    <!-- WISH WALL -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div class="section-icon">
+          ✨
+        </div>
+
+        <h2>
+          Birthday Wish Wall
+        </h2>
+
+        <p>
+          Messages from people who wanted to make
+          this day special.
+        </p>
+
+      </div>
+
+
+      <div
+        id="wishWall"
+        class="wish-wall"
+      >
+
+        <div class="loading">
+          Loading birthday wishes...
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+      <p>
+        Made with ❤️ for
+        <strong>Satyaki Pahari Sir</strong>
+      </p>
+
+      <small>
+        A digital birthday tribute
+      </small>
+
+    </footer>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
 </body>
+
 </html>
