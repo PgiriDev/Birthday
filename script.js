@@ -1,101 +1,314 @@
-// Replace this with your Google Apps Script Web App URL
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwMWCso88VgpoOhDdCWc9XCnAjX0A0hEB09RIq5kYeYWQpR0XSACwtOFC-6wPyIkZqN/exec";
+// ======================================================
+// CONFIG
+// ======================================================
 
-// Array of soft gradient backgrounds for dynamic cards
-const cardColors = [
-    "linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)",
-    "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
-    "linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%)",
-    "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
-    "linear-gradient(120deg, #8fd3f4 0%, #84fab0 100%)"
-];
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbyjduPf9bP81ZpJyjTjHyyKdjpZmOoP-KeQVERAColHR2JP8hf0cHwM30XluqBCLKVgwQ/exec";
 
-document.getElementById('wishForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const submitBtn = document.getElementById('submitBtn');
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-    submitBtn.disabled = true;
 
-    const formData = {
-        name: document.getElementById('name').value,
-        relation: document.getElementById('relation').value,
-        message: document.getElementById('message').value
+// ======================================================
+// INITIAL LOAD
+// ======================================================
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+    loadWishes();
+
+    setupCharacterCounter();
+
+    setupSubmitHandler();
+
+  }
+);
+
+
+// ======================================================
+// LOAD APPROVED WISHES
+// ======================================================
+
+function loadWishes() {
+
+  const callbackName =
+    "birthdayWishesCallback";
+
+  window[callbackName] =
+    function (response) {
+
+      if (
+        !response ||
+        !response.success
+      ) {
+
+        showError();
+
+        return;
+      }
+
+      renderWishes(
+        response.wishes || []
+      );
+
     };
 
-    fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Wish to Sir';
-        submitBtn.disabled = false;
-        document.getElementById('wishForm').reset();
-        document.getElementById('successModal').style.display = 'flex';
-        fetchWishes(); // Refresh list
-    })
-    .catch(error => {
-        console.error('Error!', error);
-        alert('Something went wrong. Please try again.');
-        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Wish to Sir';
-        submitBtn.disabled = false;
+
+  const script =
+    document.createElement("script");
+
+  script.src =
+    API_URL +
+    "?action=wishes" +
+    "&callback=" +
+    callbackName +
+    "&t=" +
+    Date.now();
+
+  script.onerror = function () {
+
+    showError();
+
+  };
+
+  document.body.appendChild(script);
+}
+
+
+// ======================================================
+// RENDER WISHES
+// ======================================================
+
+function renderWishes(wishes) {
+
+  const wall =
+    document.getElementById(
+      "wishWall"
+    );
+
+  const wishCount =
+    document.getElementById(
+      "wishCount"
+    );
+
+  const peopleCount =
+    document.getElementById(
+      "peopleCount"
+    );
+
+
+  wishCount.textContent =
+    wishes.length;
+
+  peopleCount.textContent =
+    wishes.length;
+
+
+  if (!wishes.length) {
+
+    wall.innerHTML = `
+      <div class="empty">
+        💌 Be the first person to leave a wish.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  wall.innerHTML =
+    wishes.map(function (wish) {
+
+      return `
+        <article class="wish-card">
+
+          <div class="wish-top">
+
+            <div>
+
+              <div class="wish-name">
+                ${escapeHtml(wish.name)}
+              </div>
+
+              <div class="wish-relation">
+                ${escapeHtml(wish.relation)}
+              </div>
+
+            </div>
+
+            <div>
+              💌
+            </div>
+
+          </div>
+
+          <div class="wish-message">
+            “${escapeHtml(wish.message)}”
+          </div>
+
+        </article>
+      `;
+
+    }).join("");
+}
+
+
+// ======================================================
+// SUBMIT HANDLER
+// ======================================================
+
+function setupSubmitHandler() {
+
+  const form =
+    document.getElementById(
+      "wishForm"
+    );
+
+  const frame =
+    document.getElementById(
+      "submitFrame"
+    );
+
+  const success =
+    document.getElementById(
+      "successMessage"
+    );
+
+  const button =
+    document.getElementById(
+      "submitButton"
+    );
+
+
+  let submitted = false;
+
+
+  form.addEventListener(
+    "submit",
+    function () {
+
+      submitted = true;
+
+      button.disabled = true;
+
+      button.textContent =
+        "Sending your wish...";
+
+    }
+  );
+
+
+  frame.addEventListener(
+    "load",
+    function () {
+
+      if (!submitted) {
+        return;
+      }
+
+      submitted = false;
+
+      form.reset();
+
+      document.getElementById(
+        "characterCount"
+      ).textContent = "0";
+
+
+      button.disabled = false;
+
+      button.textContent =
+        "🎁 Send My Wish";
+
+
+      success.style.display =
+        "block";
+
+
+      setTimeout(function () {
+
+        success.style.display =
+          "none";
+
+      }, 7000);
+
+    }
+  );
+}
+
+
+// ======================================================
+// CHARACTER COUNTER
+// ======================================================
+
+function setupCharacterCounter() {
+
+  const textarea =
+    document.querySelector(
+      'textarea[name="message"]'
+    );
+
+  const counter =
+    document.getElementById(
+      "characterCount"
+    );
+
+
+  textarea.addEventListener(
+    "input",
+    function () {
+
+      counter.textContent =
+        textarea.value.length;
+
+    }
+  );
+}
+
+
+// ======================================================
+// SCROLL
+// ======================================================
+
+function scrollToWishForm() {
+
+  document
+    .getElementById("wishSection")
+    .scrollIntoView({
+      behavior: "smooth"
     });
-});
 
-function closeModal() {
-    document.getElementById('successModal').style.display = 'none';
 }
 
-// Fetch wishes on page load
-function fetchWishes() {
-    fetch(SCRIPT_URL)
-    .then(response => response.json())
-    .then(data => {
-        const container = document.getElementById('wishesContainer');
-        document.getElementById('totalWishes').innerText = data.length;
-        
-        if(data.length === 0) {
-            container.innerHTML = '<p class="loading-text">No wishes yet. Be the first one to wish Sir!</p>';
-            return;
-        }
 
-        container.innerHTML = "";
-        // Reverse array to show latest wishes first
-        data.reverse().forEach((wish, index) => {
-            const randomBg = cardColors[index % cardColors.length];
-            
-            const card = document.createElement('div');
-            card.className = 'wish-card';
-            card.style.background = randomBg;
-            
-            card.innerHTML = `
-                <div class="wish-header">
-                    <span class="wish-name"><i class="fa-solid fa-user-circle"></i> ${escapeHtml(wish.Name)}</span>
-                    <span class="wish-relation">${escapeHtml(wish.Relation)}</span>
-                </div>
-                <p class="wish-msg">"${escapeHtml(wish.Message)}"</p>
-            `;
-            container.appendChild(card);
-        });
-    })
-    .catch(err => {
-        console.error('Error fetching wishes:', err);
-        document.getElementById('wishesContainer').innerHTML = '<p class="loading-text">Could not load live wishes.</p>';
-    });
+// ======================================================
+// ERROR
+// ======================================================
+
+function showError() {
+
+  document.getElementById(
+    "wishWall"
+  ).innerHTML = `
+    <div class="empty">
+      Unable to load wishes right now.
+      Please try again later.
+    </div>
+  `;
+
 }
 
-function escapeHtml(text) {
-    if (!text) return '';
-    return text.toString()
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
 
-// Load on start & poll every 10 seconds for live updates
-fetchWishes();
-setInterval(fetchWishes, 10000);
+// ======================================================
+// SECURITY
+// ======================================================
+
+function escapeHtml(value) {
+
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
