@@ -2,282 +2,613 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
 
-  <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+    <meta
+        name="theme-color"
+        content="#0b0d14"
+    >
 
-  <title>
-    Happy Birthday Satyaki Pahari Sir 🎂
-  </title>
+    <meta
+        name="description"
+        content="A special digital birthday tribute for Satyaki Pahari Sir."
+    >
 
-  <meta
-    name="description"
-    content="A digital birthday tribute for Satyaki Pahari Sir."
-  >
+    <title>
+        Happy Birthday Satyaki Pahari Sir 🎂
+    </title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
-
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
+
 
 <body>
 
-  <div class="background-glow glow-1"></div>
-  <div class="background-glow glow-2"></div>
+    <!-- =========================================
+         BACKGROUND EFFECTS
+    ========================================== -->
 
-  <main>
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-      <div class="badge">
-        🎂 A Special Celebration
-      </div>
-
-      <h1>
-        Happy Birthday
-        <span>Satyaki Pahari Sir</span>
-      </h1>
-
-      <p class="hero-text">
-        A small digital space created by everyone
-        who wants to make your special day memorable.
-      </p>
-
-      <button
-        class="primary-btn"
-        onclick="scrollToWishForm()"
-      >
-        💌 Leave a Birthday Wish
-      </button>
-
-    </section>
+    <div class="bg-orb bg-orb-one"></div>
+    <div class="bg-orb bg-orb-two"></div>
+    <div class="bg-orb bg-orb-three"></div>
 
 
-    <!-- STATS -->
+    <!-- =========================================
+         MAIN PAGE
+    ========================================== -->
 
-    <section class="stats">
-
-      <div class="stat-card">
-        <strong id="wishCount">0</strong>
-        <span>Birthday Wishes</span>
-      </div>
-
-      <div class="stat-card">
-        <strong id="peopleCount">0</strong>
-        <span>People</span>
-      </div>
-
-    </section>
+    <main id="mainPage">
 
 
-    <!-- WISH FORM -->
+        <!-- =====================================
+             HERO SECTION
+        ====================================== -->
 
-    <section
-      class="section"
-      id="wishSection"
-    >
+        <section class="hero-section">
 
-      <div class="section-heading">
-
-        <div class="section-icon">
-          💌
-        </div>
-
-        <h2>
-          Leave Your Wish
-        </h2>
-
-        <p>
-          Write something special for Sir.
-        </p>
-
-      </div>
+            <div class="hero-badge">
+                <span>🎂</span>
+                A Special Celebration
+            </div>
 
 
-      <form
-  id="wishForm"
-  action="YOUR_APPS_SCRIPT_URL"
-  method="POST"
-  target="submitFrame"
->
-
-  <div class="form-grid">
-
-    <div class="field">
-
-      <label>
-        Your Name
-      </label>
-
-      <input
-        type="text"
-        name="name"
-        placeholder="Enter your name"
-        maxlength="80"
-        autocomplete="name"
-        required
-      >
-
-    </div>
+            <div class="hero-decoration">
+                ✦
+            </div>
 
 
-    <div class="field">
+            <h1 class="hero-title">
 
-      <label>
-        You are...
-      </label>
+                Happy Birthday
 
-      <select
-        name="relation"
-        required
-      >
+                <span>
+                    Satyaki Pahari Sir
+                </span>
 
-        <option value="">
-          Select one
-        </option>
-
-        <option>
-          Student
-        </option>
-
-        <option>
-          Former Student
-        </option>
-
-        <option>
-          Teacher / Colleague
-        </option>
-
-        <option>
-          Friend
-        </option>
-
-        <option>
-          Well-wisher
-        </option>
-
-        <option>
-          Other
-        </option>
-
-      </select>
-
-    </div>
-
-  </div>
+            </h1>
 
 
-  <div class="field">
+            <p class="hero-description">
 
-    <label>
-      Your Message
-    </label>
+                Some people teach lessons.
+                Some people leave a lasting impact.
 
-    <textarea
-      name="message"
-      placeholder="Write something special for Sir..."
-      maxlength="1000"
-      required
-    ></textarea>
+                <br>
 
-    <div class="counter">
-      <span id="characterCount">0</span>
-      / 1000
-    </div>
+                Today is a small opportunity to celebrate
+                one such special person.
 
-  </div>
+            </p>
 
 
-  <button
-    type="submit"
-    class="submit-btn"
-    id="submitButton"
-  >
-    🎁 Send My Wish
-  </button>
+            <button
+                type="button"
+                class="hero-button"
+                id="openWishButton"
+            >
 
-</form>
-      <iframe
+                <span>
+                    💌
+                </span>
+
+                Leave a Birthday Wish
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+            <div class="scroll-hint">
+
+                <span></span>
+
+                Scroll to explore
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             INTRO SECTION
+        ====================================== -->
+
+        <section class="intro-section">
+
+            <div class="section-label">
+                A DIGITAL TRIBUTE
+            </div>
+
+
+            <h2>
+                Make Sir's birthday
+                a little more special.
+            </h2>
+
+
+            <p>
+
+                দূরে থাকলেও শুভেচ্ছা জানাতে
+                দূরত্ব যেন বাধা না হয়।
+
+                <br><br>
+
+                আপনার একটি ছোট্ট message,
+                একটি শুভকামনা কিংবা মনের
+                কয়েকটি কথা এই digital birthday
+                wall-এর অংশ হয়ে থাকবে।
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================
+             WISH FORM SECTION
+        ====================================== -->
+
+        <section
+            class="wish-section"
+            id="wishSection"
+        >
+
+            <div
+                class="section-heading"
+            >
+
+                <div class="section-icon">
+                    💌
+                </div>
+
+
+                <div class="section-label">
+                    LEAVE YOUR MESSAGE
+                </div>
+
+
+                <h2>
+                    আপনার শুভেচ্ছা লিখুন
+                </h2>
+
+
+                <p>
+                    স্যারের জন্য আপনার মনের
+                    কথাটি সুন্দর করে লিখুন।
+                </p>
+
+            </div>
+
+
+
+            <!-- FORM CONTAINER -->
+
+            <div
+                class="form-container"
+                id="formContainer"
+            >
+
+                <form
+                    id="wishForm"
+                    action="https://script.google.com/macros/s/AKfycbzXkbCTlEDBduPacPCtwXYvgYKbK3Pm53ciV6zczSuZA6L5sp-xTHMqNmWe6Vv3amln_A/exec"
+                    method="POST"
+                    target="submitFrame"
+                >
+
+
+                    <!-- NAME + RELATION -->
+
+                    <div class="form-row">
+
+
+                        <!-- NAME -->
+
+                        <div class="form-field">
+
+                            <label for="name">
+
+                                আপনার নাম
+
+                                <span>
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="আপনার নাম লিখুন"
+                                maxlength="80"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- RELATION -->
+
+                        <div class="form-field">
+
+                            <label for="relation">
+
+                                আপনি কে?
+
+                                <span>
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <select
+                                id="relation"
+                                name="relation"
+                                required
+                            >
+
+                                <option
+                                    value=""
+                                >
+                                    একটি নির্বাচন করুন
+                                </option>
+
+
+                                <option
+                                    value="Student"
+                                >
+                                    Student
+                                </option>
+
+
+                                <option
+                                    value="Former Student"
+                                >
+                                    Former Student
+                                </option>
+
+
+                                <option
+                                    value="Teacher / Colleague"
+                                >
+                                    Teacher / Colleague
+                                </option>
+
+
+                                <option
+                                    value="Friend"
+                                >
+                                    Friend
+                                </option>
+
+
+                                <option
+                                    value="Well-wisher"
+                                >
+                                    Well-wisher
+                                </option>
+
+
+                                <option
+                                    value="Other"
+                                >
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-field">
+
+                        <div class="message-label-row">
+
+                            <label for="message">
+
+                                আপনার শুভেচ্ছা
+
+                                <span>
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <span
+                                class="character-count"
+                                id="characterCount"
+                            >
+                                0 / 1000
+                            </span>
+
+                        </div>
+
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            maxlength="1000"
+                            placeholder="স্যারের জন্য আপনার জন্মদিনের শুভেচ্ছা, ভালোবাসা বা মনের কথাটি লিখুন..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                        id="submitButton"
+                    >
+
+                        <span>
+                            🎁
+                        </span>
+
+                        আমার শুভেচ্ছা পাঠান
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <p class="form-note">
+
+                        আপনার message প্রথমে review করা হবে।
+                        অনুমোদনের পর এটি Birthday Wish Wall-এ
+                        দেখা যাবে।
+
+                    </p>
+
+                </form>
+
+            </div>
+
+
+
+            <!-- =================================
+                 SUCCESS SCREEN
+            ================================== -->
+
+            <div
+                class="success-screen"
+                id="successScreen"
+            >
+
+                <div class="success-icon">
+                    🎉
+                </div>
+
+
+                <div class="success-label">
+                    MESSAGE RECEIVED
+                </div>
+
+
+                <h2>
+                    আপনার শুভেচ্ছা
+                    গ্রহণ করা হয়েছে!
+                </h2>
+
+
+                <p class="success-main-text">
+
+                    স্যারের বিশেষ দিনে আপনার
+                    শুভেচ্ছাটিও এখন এই ছোট্ট
+                    digital স্মৃতির অংশ।
+
+                </p>
+
+
+                <p class="success-bengali-text">
+
+                    ❤️ আপনার সুন্দর কথাগুলোর জন্য
+                    অনেক ধন্যবাদ।
+
+                    <br><br>
+
+                    আপনার message review এবং
+                    approval-এর পর Birthday Wish Wall-এ
+                    সবার সঙ্গে ভাগ করে নেওয়া হবে।
+
+                </p>
+
+
+                <div class="success-loading">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <p class="redirect-message">
+
+                    আপনাকে Birthday Wish Wall-এ
+                    নিয়ে যাওয়া হচ্ছে...
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             WISH WALL PREVIEW
+        ====================================== -->
+
+        <section class="preview-section">
+
+            <div class="section-heading">
+
+                <div class="section-icon">
+                    ✨
+                </div>
+
+
+                <div class="section-label">
+                    BIRTHDAY WISH WALL
+                </div>
+
+
+                <h2>
+                    সবার শুভেচ্ছা,
+                    এক জায়গায়
+                </h2>
+
+
+                <p>
+
+                    যারা দূরে থেকেও স্যারকে
+                    শুভেচ্ছা জানাতে চান,
+                    তাঁদের message-গুলো এখানে
+                    একসঙ্গে জমা হবে।
+
+                </p>
+
+            </div>
+
+
+            <a
+                href="./wish_wall/"
+                class="wall-button"
+            >
+
+                <span>
+                    💌
+                </span>
+
+                View Birthday Wish Wall
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FINAL MESSAGE
+        ====================================== -->
+
+        <section class="final-section">
+
+            <div class="final-card">
+
+                <div class="final-quote">
+                    “
+                </div>
+
+
+                <p>
+
+                    A birthday is not just about
+                    counting another year.
+
+                    <br>
+
+                    It is about celebrating
+                    the lives you have touched.
+
+                </p>
+
+
+                <div class="final-divider"></div>
+
+
+                <strong>
+                    Happy Birthday, Sir. 🎂
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer>
+
+            <p>
+
+                Made with
+                <span>❤️</span>
+                by
+
+                <strong>
+                    Prakash Giri
+                </strong>
+
+            </p>
+
+
+            <p class="footer-small">
+
+                A digital birthday tribute
+                for Satyaki Pahari Sir
+
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         HIDDEN SUBMIT FRAME
+    ========================================== -->
+
+    <iframe
         name="submitFrame"
         id="submitFrame"
-        hidden
-      ></iframe>
-
-      <div
-        id="successMessage"
-        class="success-message"
-      >
-        🎉 Your wish has been submitted!
-        <br>
-        It will appear here after it is approved.
-      </div>
-
-    </section>
+        style="display:none;"
+    ></iframe>
 
 
-    <!-- WISH WALL -->
 
-    <section class="section">
+    <!-- =========================================
+         SCRIPT
+    ========================================== -->
 
-      <div class="section-heading">
-
-        <div class="section-icon">
-          ✨
-        </div>
-
-        <h2>
-          Birthday Wish Wall
-        </h2>
-
-        <p>
-          Messages from people who wanted to make
-          this day special.
-        </p>
-
-      </div>
-
-
-      <div
-        id="wishWall"
-        class="wish-wall"
-      >
-
-        <div class="loading">
-          Loading birthday wishes...
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-      <p>
-        Made with ❤️ for
-        <strong>Satyaki Pahari Sir</strong>
-      </p>
-
-      <small>
-        A digital birthday tribute
-      </small>
-
-    </footer>
-
-  </main>
-
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
