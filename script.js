@@ -312,3 +312,8 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 
 }
+
+setInterval(
+  loadWishes,
+  60000
+);
