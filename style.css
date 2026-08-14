@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.header-card {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.sir-img-container {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 15px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ff758c;
+    box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+}
+
+.sir-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.highlight {
+    color: #ff758c;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.stats-box {
+    display: flex;
+    justify-content: space-around;
+    background: #fff5f7;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-item i {
+    font-size: 1.8rem;
+    color: #ff758c;
+}
+
+.stat-item h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.stat-item span {
+    font-size: 0.75rem;
+    color: #7f8c8d;
+}
+
+.form-section, .wall-section {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.form-section h2, .wall-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    border-bottom: 2px solid #f1f2f6;
+    padding-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #4b6584;
+}
+
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdde1;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+    border-color: #ff758c;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+    transition: transform 0.2s;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Wishes Wall Cards with Dynamic Background Colors */
+.wishes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.wish-card {
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.wish-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.wish-name {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.wish-relation {
+    font-size: 0.75rem;
+    background: rgba(0,0,0,0.08);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.wish-msg {
+    font-size: 0.9rem;
+    color: #57606f;
+    line-height: 1.4;
+}
+
+/* Modal Popup */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+    animation: scaleUp 0.3s ease-in-out;
+}
+
+.modal-content i {
+    font-size: 3rem;
+    color: #2ed573;
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: #2f3542;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
