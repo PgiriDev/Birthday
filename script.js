@@ -1,5 +1,5 @@
 // Replace this with your Google Apps Script Web App URL
-const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwMWCso88VgpoOhDdCWc9XCnAjX0A0hEB09RIq5kYeYWQpR0XSACwtOFC-6wPyIkZqN/exec";
 
 // Array of soft gradient backgrounds for dynamic cards
 const cardColors = [
