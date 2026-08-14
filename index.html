@@ -103,125 +103,108 @@
 
 
       <form
-        id="wishForm"
-        action="https://script.google.com/macros/s/AKfycbyjduPf9bP81ZpJyjTjHyyKdjpZmOoP-KeQVERAColHR2JP8hf0cHwM30XluqBCLKVgwQ/exec"
-        method="POST"
-        target="submitFrame"
+  id="wishForm"
+  action="YOUR_APPS_SCRIPT_URL"
+  method="POST"
+  target="submitFrame"
+>
+
+  <div class="form-grid">
+
+    <div class="field">
+
+      <label>
+        Your Name
+      </label>
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        maxlength="80"
+        autocomplete="name"
+        required
       >
 
-        <div class="form-grid">
-
-          <div class="field">
-
-            <label>
-              Your Name
-            </label>
-
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              maxlength="80"
-              required
-            >
-
-          </div>
+    </div>
 
 
-          <div class="field">
+    <div class="field">
 
-            <label>
-              You are...
-            </label>
+      <label>
+        You are...
+      </label>
 
-            <select
-              name="relation"
-              required
-            >
+      <select
+        name="relation"
+        required
+      >
 
-              <option value="">
-                Select one
-              </option>
+        <option value="">
+          Select one
+        </option>
 
-              <option>
-                Student
-              </option>
+        <option>
+          Student
+        </option>
 
-              <option>
-                Former Student
-              </option>
+        <option>
+          Former Student
+        </option>
 
-              <option>
-                Teacher / Colleague
-              </option>
+        <option>
+          Teacher / Colleague
+        </option>
 
-              <option>
-                Friend
-              </option>
+        <option>
+          Friend
+        </option>
 
-              <option>
-                Well-wisher
-              </option>
+        <option>
+          Well-wisher
+        </option>
 
-              <option>
-                Other
-              </option>
+        <option>
+          Other
+        </option>
 
-            </select>
+      </select>
 
-          </div>
+    </div>
 
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            Email
-            <span>Optional</span>
-          </label>
-
-          <input
-            type="email"
-            name="email"
-            placeholder="your@email.com"
-            maxlength="150"
-          >
-
-        </div>
+  </div>
 
 
-        <div class="field">
+  <div class="field">
 
-          <label>
-            Your Message
-          </label>
+    <label>
+      Your Message
+    </label>
 
-          <textarea
-            name="message"
-            placeholder="Write your birthday wish for Sir..."
-            maxlength="1000"
-            required
-          ></textarea>
+    <textarea
+      name="message"
+      placeholder="Write something special for Sir..."
+      maxlength="1000"
+      required
+    ></textarea>
 
-          <div class="counter">
-            <span id="characterCount">0</span>
-            / 1000
-          </div>
+    <div class="counter">
+      <span id="characterCount">0</span>
+      / 1000
+    </div>
 
-        </div>
+  </div>
 
 
-        <button
-          type="submit"
-          class="submit-btn"
-          id="submitButton"
-        >
-          🎁 Send My Wish
-        </button>
+  <button
+    type="submit"
+    class="submit-btn"
+    id="submitButton"
+  >
+    🎁 Send My Wish
+  </button>
 
-      </form>
-
+</form>
       <iframe
         name="submitFrame"
         id="submitFrame"
